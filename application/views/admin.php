@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/favicon.ico">
+
+  <title>CouchInn</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="../dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="js/ie-emulation-modes-warning.js"></script>
+
+  <!-- Custom CSS -->
+  <link href="../dist/css/scrolling-nav.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+<!--
+<script>
+      $(document).ready(function (e) {
+        $('#modificar').on('show.bs.modal', function(e) {    
+          var id = $(e.relatedTarget).data().id;
+          $(e.currentTarget).find('#nombre').val(id);
+        });
+      });
+    </script> -->
+
+    <script>
+      $('#confirmar_borrar').on('show.bs.modal', function(e) {
+        /** var id = $(e.relatedTarget).data().id; **/
+        /** $(e.currentTarget).find('#idTipo').val(id); **/
+      });
+    </script>
+
+    <style type="text/css">
+
+          /* GLOBAL STYLES
+          -------------------------------------------------- */
+          /* Padding below the footer and lighter body text */
+
+          body {
+            padding-bottom: 40px;
+            color: #5a5a5a;
+          }
+
+          .featurette-image{
+            margin-top: 3em;
+          }
+
+          .featurette-divider {
+            margin: 30px 0; /* Space out the Bootstrap <hr> more */
+          }
+
+          /* Thin out the marketing headings */
+          .featurette-heading {
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: -1px;
+          }
+
+          .container{
+            /*background: #EAFAF1;*/
+            margin-left: 100px;
+            margin-right: 100px;
+
+            font-size: 50;
+          }
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 130px;
+    padding-left: 130px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+.featurette-heading {
+  font-size: 25px;
+  margin-left: 15px;
+}
+</style>
+
+</head>
+
+<body>
+  <div class="navbar-wrapper">
+    <div class="container">
+
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="http://localhost/couchinn/index.php/inicio"> <img src="../images/couchinn.png" class="img-responsive" alt="CouchInn" width="169" height="136"> </a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrador<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="active">Administrar tipos</a></li>
+                  <li><a href="#">Ver ganancias</a></li>
+                  <li><a href="#">Ver reservas aceptadas</a></li>
+                  <li role="separator" class="divider"></li>
+                  <!--      <li class="dropdown-header">Nav header</li> -->
+                  <li><a href="../index.php/usuarios/cerrar_sesion">Salir</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+ <!--        
+       <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrador<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Administrar tipos</a></li>
+              <li><a href="#">Ver ganancias</a></li>
+              <li><a href="#">Ver reservas aceptadas</a></li>
+              <li role="separator" class="divider"></li>
+              
+              <li><a href="#">Salir</a></li>
+            </ul>
+          </li>
+        </ul>   
+      </div> -->
+
+      <br> <br> <br>
+
+    <?php
+    $accion = $this->session->flashdata('accion');
+    if ($accion == 'Bien') {
+      ?>
+      <div class="alert alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Bien!</strong> El nuevo tipo de hospedaje se ha agregado correctamente.
+      </div>      
+      <?php
+    } else {
+      if ($accion == 'Error') {
+        ?>
+        <div class="alert alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>¡Error!</strong> El tipo de couch que intenta agregar ya existe.
+        </div>
+        <?php 
+      } else if ($accion == 'Borrado') {
+        ?>
+        <div class="alert alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>¡Bien!</strong> El tipo de hospedaje se ha borrado correctamente.
+        </div> 
+        <?php
+      } else if ($accion == 'fisica') {
+        ?>
+        <div class="alert alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>¡Bien!</strong> El tipo de hospedaje se ha borrado correctamente.
+        </div>
+        <?php
+      } else if ($accion == 'logica') {
+        ?>
+          <div class="alert alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Tiene couchs asociados!</strong> Los couchs asociados no perderán el tipo pero no estará disponible para futuras publicaciones.
+          </div>
+        <?php
+      } else if ($accion == 'Borrar mal') {
+          ?>
+          <div class="alert alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong></strong> El tipo de hospedaje que intenta borrar no existe.
+          </div> 
+          <?php
+        } else if ($accion == 'Modificar bien') {
+          ?>
+          <div class="alert alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Bien!</strong> El tipo de hospedaje se ha modificado correctamente.
+          </div> 
+          <?php
+        } else if ($accion == 'Modificar mal') {
+          ?>
+          <div class="alert alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> El couch que intenta modificar no existe.
+          </div>
+          <?php
+        } else if ($accion == 'reincorporar') {
+          ?>
+          <div class="alert alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Bien!</strong> El tipo de couch fue reincorporado entre los disponibles.
+          </div>
+          <?php
+        } else if ($accion == 'reincorporar mal') {
+          ?>
+          <div class="alert alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> El tipo de hospedaje que intenta reincorporar no existe.
+          </div>
+          <?php
+        } else if ($accion == 'blanco') {
+          ?>
+          <div class="alert alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Atención!</strong> Debe ingresar al menos un caracter.
+          </div>
+          <?php
+        } else if ($accion == 'simbolo') {
+          ?>
+          <div class="alert alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Atención!</strong> No es posible ingresar símbolos.
+          </div>
+          <?php
+        } else if ($accion == 'no posible') {
+          ?>
+          <div class="alert alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> No es posible modificar el tipo de couch.
+          </div>
+          <?php
+        }
+      }
+      ?>
+
+    <div class="container" style="margin-left: 90px; margin-top: 15px">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#">Administrar Tipos</a>
+        </li>
+      </ul>
+      <div class="panel panel-default center" style="margin-top: -1px">
+            <!-- <div class="panel-heading center">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-5">     
+                  <h4>Tipos de Hospedajes</h4>
+                </div>
+              </div>
+            </div> -->
+            <div class="panel-body">
+              <a type="button" class="btn btn-success" aria-label="Agregar" data-toggle="modal" href="#agregar">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"> Agregar</span><i class="icon-eye-open"></i>
+              </a>
+              <div class="row">
+                <div class="col-md-8 col-md-offset-4">                 
+                  <div class="tipos">
+                    <?php 
+                    if ($nombre_tipo != FALSE) {
+                      foreach ($nombre_tipo->result() as $row) {
+                        
+                          echo "<div>";
+                          echo '<div class="col-md-4" style="margin-top: 10px">';
+                                            /** $actual = ucwords(strtolower($row->nombre)); 
+                                            $actual = ucfirst(strtolower($row->nombre)); **/
+                                            $actual = mb_convert_case($row->nombreTipo, MB_CASE_TITLE, "utf8");
+                                            echo "<td>".$actual."</td>";
+                                            echo "</div>";
+
+                                            echo '<div clas="col-md-3">';
+                                            ?>
+
+                                            <a type="button" class="btn btn-primary" aria-label="Modificar" data-toggle="modal" href="#modificar<?= $row->idTipo?>" >
+                                              <span class="glyphicon glyphicon-pencil" aria-hidden="true"> Modificar</span>
+                                            </a>
+                                            <?php
+                                            $tipoActual = $row->idTipo;
+                                            $ruta = './administrar_tipos/modificar/' . "$tipoActual";
+                                            
+                                            foreach ($nombre_tipo->result() as $value) {
+                                              ?>
+                                              <div class="modal fade" id="modificar<?= $value->idTipo ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                <?php
+                                                echo '<div class="modal-dialog" role="document">';
+                                                echo '<div class="modal-content">';
+                                                echo '<div class="modal-header">';
+                                                echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+                                                echo '<h4 class="Modificar tipo" id="myModalLabel">Modificar Tipo de Hospedaje</h4>';
+                                                echo '</div>';
+                                                echo '<div class="modal-body">';
+                                                $tipoActual = $value->idTipo;
+                                                $ruta = './administrar_tipos/modificar/' . "$tipoActual";
+                                                ?>
+
+                                                <form action="<?= $ruta ?>"  method='post'>
+                                                  <?php
+                                                  echo '<div>'; 
+                                                  echo '<ul>';                                    
+                                                  echo '<label style="padding-right: .4em" for="name">Nombre actual:</label>';
+                                                  echo '<input size="35" type="text" placeholder="Ingrese el nuevo nombre del tipo" name="" id="" value="'.mb_convert_case($value->nombreTipo, MB_CASE_TITLE, "utf8").'" disabled /><br>'; 
+                                                  echo '<label style="padding-right: .2em" for="name">Nuevo nombre:</label>';
+                                                  echo '<input size="35" type="text" placeholder="Ingrese el nuevo nombre del tipo" name="nombre" id="nombre" required />';
+                                                  echo '</ul>';
+                                                  echo '<div class="modal-footer">';
+                                                  echo '<button href="" class="btn btn-primary" type="submit" id="modificar">Modificar</button>';
+                                                  echo '<buttom class="btn btn-default" data-dismiss="modal" style="margin-left: 5px">Cancelar</button>';
+                                                  echo '</div>';
+
+                                                  echo '</div>';
+                                                  echo '</form>';
+
+
+                                                  echo '</div>';
+
+                                                  echo '</div>';
+                                                  echo '</div>';
+                                                  echo '</div>';
+                                                }
+                                                ?>
+                                            <?php
+                                              $tipoActual = $row->idTipo;
+                                              if($row->estado != "Inactivo"){                                                
+                                                $ruta = './administrar_tipos/borrar/' . "$tipoActual";
+                                            ?>
+                                                <a class="btn btn-danger" href="<?= $ruta ?>" onclick="return confirm('¿Estás seguro que deseas eliminar el tipo de couch <?= $actual ?>?');"><span class="glyphicon glyphicon-trash" aria-hidden="true"> Borrar</span></a>
+                                            <?php
+                                            } else {
+                                              $ruta = './administrar_tipos/reincorporar/' . "$tipoActual";
+                                            ?>
+                                              <a class="btn btn-success" href="<?= $ruta ?>" onclick="return confirm('¿Estás seguro que deseas agregar el tipo de couch <?= $actual ?>?');"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Agregar</span></a>
+                                            <?php
+                                            }
+                                            ?>
+
+                                                <?php
+                                                echo "</div>";
+                                                echo "<br>";
+                                                echo "</div>";
+                                              
+
+                                            }
+                                          } else {
+                                            echo "No hay tipos de hospedaje para mostrar";
+                                          }
+                                          ?>    
+                                        </div>                  
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> 
+                              </div>
+      <!-- <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="Modificar tipo" id="myModalLabel">Modificar Tipo de Hospedaje</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="../administrar_tipos/modificar" name="modificar_tipo" method="post">
+                                <div> 
+
+                                    <ul>                                        
+                                            <label for="name">Nombre actual:</label> 
+                                            <input size="35" type="text" name="nombre" id="nombre" value="" disabled /> 
+                                            <br>
+                                            <label for="name">Nuevo nombre:</label> 
+                                            <input size="35" type="text" placeholder="Ingrese el nuevo nombre del tipo" name="nombre" id="nombre" required /> 
+                                            
+                                                                                        
+                                    </ul> 
+                                    
+                                      <div class="modal-footer">
+                                        <button class="btn btn-primary" type="submit" id="modificar">Modificar</button> 
+                                        <buttom class="btn btn-default" data-dismiss="modal" style="margin-left: 5px">Cancelar</button>
+                                      </div>
+                                    
+                                </div> 
+                            </form> 
+
+                        </div>
+                        
+                    </div>
+                </div>
+              </div> -->
+
+              <div class="modal fade" id="borrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="Borrar tipo" id="myModalLabel">Borrar Tipo de Hospedaje</h4>
+                    </div>
+                    <div class="modal-body">
+
+                      <form action="" name="borrar_tipoo" method="post">  
+                        <div>
+                          <p>Está a punto de borrar el tipo de couch <strong></strong></p> 
+                          <p>¿Proceder de todas formas?</p>
+                          <!-- <p class="debug-url"></p> -->
+                        </div>  
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <a><button class="btn btn-danger" type="submit" id="modificar">Borrar</button></a>
+                      <buttom class="btn btn-default" data-dismiss="modal" style="margin-left: 5px">Cancelar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="Modificar tipo" id="myModalLabel">Agregar Tipo de Hospedaje</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form action="./administrar_tipos/agregar" name="agregar_tipoo" method="post">
+                          <div> 
+                            <ul>                                        
+                              <label for="name">Nombre:</label> 
+                              <input size="25" type="text" placeholder="Ingrese el nombre del tipo" name="nombre" id="nombre" required /> 
+                            </ul>
+
+                            <div class="modal-footer">
+                              <button class="btn btn-success" type="submit" id="modificar">Agregar</button> 
+                              <buttom class="btn btn-default" data-dismiss="modal" style="margin-left: 5px">Cancelar</button>
+                            </div> 
+                          </div> 
+                        </form> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+<!--    <a id="alumno1" 
+  data-target="#modalAlumno" 
+  data-toggle="modal" 
+  data-id="123" 
+  href="#" 
+  class="sepV_a" 
+  title="Agregar alumnos"><i class="icon-eye-open"></i> Agregar alumno (id: 123)</a>
+<br /> 
+<a id="alumno2" 
+  data-target="#modalAlumno" 
+  data-toggle="modal" 
+  data-id="456" 
+  href="#" 
+  class="sepV_a" 
+  title="Agregar alumnos"><i class="icon-eye-open"></i> Agregar alumno (id: 456)</a>
+
+<div class="modal fade" id="modalAlumno">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h3>New Tasks</h3>
+        </div>
+        <div class="modal-body">
+            <input type="text" name="bookId" id="bookId" value="" />
+
+         </div>
+       </div> -->
+
+       <hr class="featurette-divider">
+
+       <!-- FOOTER -->
+       <footer>
+        <p align="center">Ingenieria de Software II - FI UNLP</p>
+        <p>&copy; 2016 Itt. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </div> <!-- /.container -->
+    <!-- jQuery -->
+    <script src="../dist/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="js/holder.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+  </html>

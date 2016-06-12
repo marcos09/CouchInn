@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+	<meta charset="UTF-8">
+	<title>Couchinn</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!--link href="estilo.css" rel="stylesheet" /--> 
+</head> 
+<body> 
+	<header>
+		<div class="container">
+			<h1>Couchinn: <small>Una nueva forma de viajar</small></h1>
+		</div>
+	</header>
+	
+	<br>
+
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" href="#myModal">Registrarse</button>
+	<!--Este es el código del modal-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<form name="registrar_usuario" method="post"action="agregar_usuario.php" >
+						<!--form class="contact_form" action="#" id="contact_form" runat="server"--> 
+						<div> 
+							<ul>
+								<li> 
+									<h2>Registrar usuario</h2> 
+									<span class="required_notification">* Datos requeridos</span> 
+								</li> 
+								<li> 
+									<label for="name">Nombre:</label> 
+									<input type="text" placeholder="Angélica Lopez" name="name" required /> 
+								</li>
+								<li> 
+									<label for="email">Email:</label> 
+									<input type="email" name="email" placeholder="usuario@ejemplo.com" required /> 
+									<p class="help-block">nombre@ejemplo.com</p>
+								</li> 
+
+								<li> 
+									<label for="contraseña">Contraseña:</label>
+									<input type="password" name="contraseña" required /> 
+								</li> 
+								<li> 
+									<label for="contraseña2">Repetir contraseña:</label>
+									<input type="password" name="contraseña2" required /> 
+								</li> 
+
+								<li> 
+									<label for="telefono">Telefono:</label>
+									<input type="number" name="telefono" placeholder=02214534394 /> 
+									<span class="form_hint">No se aceptan espacios ni guiones. Solamente números</span>
+								</li> 
+								<li> 
+									<label for="edad">Edad:</label>
+									<input type="number" name="edad" placeholder= 20 /> 
+								</li> 
+								<li> 
+									<label for="fecha_nacimiento">Edad:</label>
+									<input type="date" name="fecha_nacimiento" placeholder="25/02/1974" required /> 
+									<span class="help-block">Formato correcto: "dd/mm/aaaa"</span>
+								</li> 
+								<div class="form-group">
+									<label for="exampleInputFile">Foto de Perfil</label>
+									<input type="file" id="exampleInputFile" accept=".jpg">
+									<p class="help-block">Solamente se aceptan imagenes jpg.</p>
+								</div>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" required> Declaro ser mayor de 18 años y haber leido y aceptado los terminos y condiciones del servicio
+									</label>
+								</div>
+								<br>
+								<li> 
+									<button class="btn btn-primary" type="submit">Registrar usuario</button> 
+								</li>
+								<buttom class="btn btn-primary" href="index.html">Salir</button>
+								</ul> 
+							</form>
+						</div> 
+					</form> 
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Fin del modal-->
+	<footer>
+		<div class="container">
+			<p>Este es el pie de página</p>
+		</div>
+	</footer>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body> 
+</html>
