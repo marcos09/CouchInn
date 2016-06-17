@@ -410,6 +410,15 @@
 
             <br>
 
+            
+          <?php
+            $idUsuario = $user->idUsuario;
+            $ruta = '../index.php/inicio/recuperar/' . "$idUsuario"
+          ?>
+          <?php
+            echo '<a href="'.$ruta.'">Olvide mi contraseña</a>'; 
+          ?>
+
        <!--  <div class="caption"> 
           <p class="text-right">
             <a class="btn btn-default" data-dismiss="modal" role="button">Cancelar</a>
