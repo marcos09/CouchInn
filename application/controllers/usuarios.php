@@ -101,4 +101,13 @@ class Usuarios extends CI_Controller {
       }
 
    }
+   
+   public function recuperar($id_usuario){
+     $email = $this->input->post('mail', TRUE);
+      if ($email != FALSE) {
+            $this->session->set_flashdata('accion', 'bien');
+            redirect('http://localhost/couchinn/index.php/inicio', 'refresh');
+      }  
+   }
+   
 }
