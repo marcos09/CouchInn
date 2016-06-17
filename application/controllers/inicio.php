@@ -118,6 +118,16 @@ class Inicio extends CI_Controller {
 	        redirect('http://localhost/couchinn/index.php/inicio', 'refresh');
 		}
 	}
+	
+	public function recuperar(){
+		if($this->session->userdata('login')) {
+			$email=$this->session->userdata('email');
+			$this->load->model('usuario_model');
+			$usuario = $this->usuario_model->getUser($email);
+			$this->session->set_flashdata('accion', 'bien');	
+		} 
+	}
+	
 	/**
 	public function registrarse(){
 		$this->load->view('formulario_registrarse');
