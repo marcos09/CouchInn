@@ -134,5 +134,16 @@ class Inicio extends CI_Controller {
 	}
 	**/
 	
+	public function ver_perfil() {
+		if($this->session->userdata('login')) {
+			$email=$this->session->userdata('email');
+			$this->load->model('usuario_model');
+			$usuario = $this->usuario_model->getUser($email);
+			$data = array(
+				'user' => $usuario	
+			);
+			$this->load->view('ver_perfil', $data);
+		}
+	}
 }
 ?>
