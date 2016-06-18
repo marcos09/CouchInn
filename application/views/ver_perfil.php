@@ -67,7 +67,59 @@
       <strong>¡Error!</strong> No ha podido ser modificado.
     </div>
     <?php
+  }  <?php $accion = $this->session->flashdata('accion');
+ if ($accion == 'Bien') {
+ ?>
+ <div class="alert alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>¡Bien!</strong> Se ha modificado el campo correctamente.
+</div>      
+<?php
+} else {
+  if ($accion == 'Error') {
+    ?>
+    <div class="alert alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>¡Error!</strong> No pudo ser modificado.
+    </div>
+   <?php
+  } else if ($accion == 'Modificar bien') {
+    ?>
+    <div class="alert alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>¡Bien!</strong> Su perfil ha sido actualizado correctamente.
+    </div> 
+    <?php
+  } else if ($accion == 'Modificar mal') {
+    ?>
+    <div class="alert alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>¡Error!</strong> No ha podido ser modificado.
+    </div>
+    <?php
+  } else if ($accion == 'blanco') {
+    ?>
+    <div class="alert alert alert-info">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>¡Atención!</strong> Debe ingresar al menos un caracter.
+    </div>
+    <?php
+  } else if ($accion == 'simbolo') {
+    ?>
+    <div class="alert alert alert-info">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>¡Atención!</strong> No es posible ingresar símbolos.
+    </div>
+    <?php
+  } else if ($accion == 'no posible') {
+    ?>
+    <div class="alert alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>¡Error!</strong> No es posible modificar.
+    </div>
+    <?php
   }
+}
     ?>
     <div class="alert alert alert-info">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
