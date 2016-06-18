@@ -101,7 +101,40 @@ class Usuarios extends CI_Controller {
       }
 
    }
-   
+
+    public function modificar($id_usuario) {
+      $this->load->model('usuario_model');
+      $cantidad = $this->input->post('nombre', TRUE); 
+      if ($cantidad != FALSE) {  
+         $nombre = $_POST['nombre'];
+         $nombre = trim(strtoupper($nombre));
+         if ($nombre == '') {
+            $this->session->set_flashdata('accion', 'blanco');
+            redirect('http://localhost/couchinn/index.php/usuarios', 'refresh');
+         } else if (preg_match('/[a-zA-Z0-9/ñ/Ñ]/', $nombre)) {
+            $this->session->set_flashdata('accion', 'simbolo');
+            redirect('http://localhost/couchinn/index.php/usuarios', 'refresh');
+         }
+         $consulta = $this->usuario_model->modificar($id_tipo, $nombre);
+         if ($consulta != FALSE) {
+            if ($consulta == 22) {
+               $this->session->set_flashdata('accion', 'Error');
+               redirect('http://localhost/couchinn/index.php/usuarios', 'refresh');
+            } else {
+               $this->session->set_flashdata('accion', 'Modificar bien');
+               redirect('http://localhost/couchinn/index.php/usuarios', 'refresh');
+            }
+         } else {
+            $this->session->set_flashdata('accion', 'Modificar mal');
+            redirect('http://localhost/couchinn/index.php/usuarios', 'refresh');
+         }
+      }
+      else {
+         $this->session->set_flashdata('accion', 'no posible');
+         redirect('http://localhost/couchinn/index.php/usuarios', 'refresh');
+      }
+   }
+
    public function recuperar($id_usuario){
      $email = $this->input->post('mail', TRUE);
       if ($email != FALSE) {
@@ -109,5 +142,14 @@ class Usuarios extends CI_Controller {
             redirect('http://localhost/couchinn/index.php/inicio', 'refresh');
       }  
    }
+
+   public function ver_perfil($id_usuario) {
+      $this->load->model('usuario_model');
+      $data = array(
+         'user' => $this->usuario_model->ver_perfil($id_usuario),
+         );
+      $this->load->view('ver_perfil', $data);
+   }
+   
    
 }
