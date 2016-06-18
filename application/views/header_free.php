@@ -268,7 +268,7 @@ VER EL USO DEL BODY
                  <li><a href="#">Mis couchs</a></li>
                  <?php echo '<li><a style="background-color: #95AC3C" href="'.$ruta.'">Hacerme premium</a></li>'; ?>
                  <li><a href="#">Mis hospedajes</a></li>
-                 <li><a href="#">Modificar datos</a></li>
+                 <li><a href="../index.php/inicio/ver_perfil/">Ver perfil</a></li>
                  <li><a href="#">Reservas</a></li>               
                  <li role="separator" class="divider"></li>
                  <!--      <li class="dropdown-header">Nav header</li> -->
